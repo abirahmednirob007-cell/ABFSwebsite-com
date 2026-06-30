@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arka Bari Community — Together We Are Family</title>
+<meta name="description" content="Secure savings, community support and family benefits in one platform. Empowering families with transparent financial growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EE;
+    --cream-deep:#F2ECDD;
+    --ink:#15241B;
+    --ink-soft:#41544A;
+    --forest:#1E5B3E;
+    --forest-deep:#123D29;
+    --forest-bright:#2E7D4F;
+    --mint:#E7F0E6;
+    --mint-line:#CFE0CD;
+    --gold:#B9924A;
+    --white:#FFFFFF;
+    --shadow-soft: 0 20px 50px -20px rgba(18,61,41,0.25);
+    --shadow-card: 0 14px 34px -16px rgba(18,61,41,0.18);
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img,svg{display:block;}
+
+  a{text-decoration:none;color:inherit;}
+
+  ul{list-style:none;}
+
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  :focus-visible{
+    outline:2.5px solid var(--forest-bright);
+    outline-offset:3px;
+    border-radius:6px;
+  }
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ===== Stitch pattern signature ===== */
+  .stitch-border{
+    position:relative;
+  }
+  .stitch-border::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    padding:1px;
+    background-image: repeating-linear-gradient(135deg, rgba(30,91,62,0.35) 0 6px, transparent 6px 12px);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events:none;
+    opacity:0.6;
+  }
+
+  .nakshi-dots{
+    background-image: radial-gradient(circle, rgba(30,91,62,0.16) 1.4px, transparent 1.4px);
+    background-size: 16px 16px;
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(250,246,238,0.86);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(30,91,62,0.1);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:1280px;
+    margin:0 auto;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .brand-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:linear-gradient(155deg, var(--forest-bright), var(--forest-deep));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--white);
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:16px;
+    letter-spacing:0.5px;
+    box-shadow:0 8px 18px -6px rgba(18,61,41,0.5);
+  }
+
+  .brand-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+    letter-spacing:-0.01em;
+    color:var(--forest-deep);
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:40px;
+  }
+
+  .nav-links a{
+    font-size:15px;
+    font-weight:500;
+    color:var(--ink-soft);
+    position:relative;
+    padding:4px 0;
+    transition:color 0.25s ease;
+  }
+
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-2px;
+    width:0;
+    height:2px;
+    background:var(--forest-bright);
+    transition:width 0.3s ease;
+  }
+
+  .nav-links a:hover{color:var(--forest-deep);}
+  .nav-links a:hover::after{width:100%;}
+
+  .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .btn{
+    font-size:14.5px;
+    font-weight:600;
+    padding:11px 22px;
+    border-radius:100px;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    white-space:nowrap;
+  }
+
+  .btn-outline{
+    border:1.5px solid var(--forest);
+    color:var(--forest-deep);
+    background:transparent;
+  }
+  .btn-outline:hover{
+    background:var(--mint);
+    transform:translateY(-1px);
+  }
+
+  .btn-filled{
+    background:var(--forest-deep);
+    color:var(--white);
+    box-shadow:0 10px 22px -8px rgba(18,61,41,0.55);
+  }
+  .btn-filled:hover{
+    background:var(--forest);
+    transform:translateY(-2px);
+    box-shadow:0 14px 28px -8px rgba(18,61,41,0.6);
+  }
+
+  .menu-toggle{
+    display:none;
+    width:40px;
+    height:40px;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    border:1.5px solid rgba(30,91,62,0.25);
+  }
+  .menu-toggle span, .menu-toggle::before, .menu-toggle::after{
+    display:none;
+  }
+  .menu-toggle svg{width:20px;height:20px;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    padding:88px 0 60px;
+  }
+
+  .hero-bg-pattern{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background-image: radial-gradient(circle, rgba(30,91,62,0.10) 1.2px, transparent 1.2px);
+    background-size:22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 30%, transparent 75%);
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 64px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--mint);
+    border:1px solid var(--mint-line);
+    color:var(--forest-deep);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    padding:8px 16px;
+    border-radius:100px;
+    margin-bottom:26px;
+  }
+  .eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--forest-bright);
+  }
+
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(40px, 6.4vw, 76px);
+    line-height:1.04;
+    letter-spacing:-0.02em;
+    color:var(--ink);
+  }
+
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--forest);
+    font-optical-sizing:auto;
+  }
+
+  .hero p.subtitle{
+    margin-top:24px;
+    font-size:18px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-ctas{
+    margin-top:36px;
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .hero-ctas .btn{padding:14px 30px;font-size:15px;}
+
+  /* ===== Hero layout: feature cards + phone ===== */
+  .hero-layout{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1fr minmax(260px, 320px) 1fr;
+    align-items:center;
+    gap:24px;
+    max-width:1240px;
+    margin:0 auto;
+  }
+
+  .feature-col{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .feature-card{
+    background:var(--white);
+    border-radius:var(--radius-md);
+    padding:22px 22px 24px;
+    box-shadow:var(--shadow-card);
+    border:1px solid rgba(30,91,62,0.07);
+    transition:transform 0.35s cubic-bezier(.2,.8,.3,1), box-shadow 0.35s ease, border-color 0.35s ease;
+    position:relative;
+  }
+
+  .feature-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 26px 48px -18px rgba(18,61,41,0.3);
+    border-color:rgba(30,91,62,0.18);
+  }
+
+  .feature-icon{
+    width:46px;
+    height:46px;
+    border-radius:13px;
+    background:var(--mint);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:14px;
+    color:var(--forest);
+  }
+  .feature-icon svg{width:23px;height:23px;stroke:var(--forest-deep);}
+
+  .feature-card h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:17px;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+
+  .feature-card p{
+    font-size:14px;
+    line-height:1.55;
+    color:var(--ink-soft);
+  }
+
+  /* ===== Phone mockup ===== */
+  .phone-stage{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+  }
+
+  .phone-glow{
+    position:absolute;
+    width:340px;
+    height:340px;
+    background:radial-gradient(circle, rgba(46,125,79,0.28), transparent 70%);
+    filter:blur(10px);
+    z-index:0;
+  }
+
+  .phone{
+    position:relative;
+    z-index:1;
+    width:280px;
+    height:572px;
+    background:linear-gradient(160deg, #1b2e22, #0f1c14);
+    border-radius:46px;
+    padding:14px;
+    box-shadow: var(--shadow-soft), 0 0 0 2px rgba(255,255,255,0.04) inset;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float{
+    0%, 100%{transform:translateY(0);}
+    50%{transform:translateY(-14px);}
+  }
+
+  .phone-notch{
+    position:absolute;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    width:96px;
+    height:22px;
+    background:#0f1c14;
+    border-radius:0 0 16px 16px;
+    z-index:3;
+  }
+
+  .phone-screen{
+    width:100%;
+    height:100%;
+    background:var(--cream);
+    border-radius:34px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .dash-header{
+    background:linear-gradient(150deg, var(--forest), var(--forest-deep));
+    padding:30px 18px 22px;
+    color:var(--white);
+    position:relative;
+  }
+
+  .dash-greeting{font-size:11px; opacity:0.75; letter-spacing:0.04em; text-transform:uppercase;}
+  .dash-name{font-family:'Fraunces', serif; font-size:18px; font-weight:600; margin-top:3px;}
+  .dash-id{font-size:10.5px; opacity:0.7; margin-top:4px; letter-spacing:0.03em;}
+
+  .dash-avatar{
+    position:absolute;
+    top:28px; right:18px;
+    width:34px;height:34px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.18);
+    border:1.5px solid rgba(255,255,255,0.4);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;
+  }
+
+  .dash-body{
+    flex:1;
+    padding:16px 16px 18px;
+    overflow-y:auto;
+  }
+
+  .dash-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:15px;
+    box-shadow:0 8px 20px -10px rgba(18,61,41,0.18);
+    margin-bottom:12px;
+    border:1px solid rgba(30,91,62,0.06);
+  }
+
+  .savings-label{font-size:10.5px; color:var(--ink-soft); letter-spacing:0.03em; text-transform:uppercase;}
+  .savings-amount{font-family:'Fraunces', serif; font-size:25px; font-weight:600; color:var(--ink); margin-top:3px;}
+  .savings-sub{font-size:11px; color:var(--forest); margin-top:2px; font-weight:600;}
+
+  .progress-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    margin-top:12px;
+    margin-bottom:6px;
+  }
+  .progress-row b{color:var(--ink); font-weight:700;}
+
+  .progress-track{
+    width:100%;
+    height:7px;
+    background:var(--mint);
+    border-radius:100px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:68%;
+    border-radius:100px;
+    background:linear-gradient(90deg, var(--forest-bright), var(--forest));
+    animation:grow 1.8s ease forwards;
+    transform-origin:left;
+  }
+  @keyframes grow{from{transform:scaleX(0);} to{transform:scaleX(1);}}
+
+  .dash-grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:12px;
+  }
+
+  .mini-card{
+    background:var(--white);
+    border-radius:14px;
+    padding:12px;
+    box-shadow:0 8px 20px -10px rgba(18,61,41,0.18);
+    border:1px solid rgba(30,91,62,0.06);
+  }
+  .mini-label{font-size:9.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.03em;}
+  .mini-value{font-family:'Fraunces', serif;font-size:15px;font-weight:600;margin-top:3px;color:var(--ink);}
+
+  .dash-section-title{
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--ink);
+    margin:4px 0 8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .dash-section-title span{font-size:10px; font-weight:600; color:var(--forest);}
+
+  .tx-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 0;
+    border-bottom:1px solid var(--cream-deep);
+  }
+  .tx-row:last-child{border-bottom:none;}
+  .tx-icon{
+    width:30px;height:30px;border-radius:10px;
+    background:var(--mint);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .tx-icon svg{width:15px;height:15px;stroke:var(--forest-deep);}
+  .tx-info{flex:1; min-width:0;}
+  .tx-title{font-size:11.5px; font-weight:600; color:var(--ink);}
+  .tx-date{font-size:9.5px; color:var(--ink-soft); margin-top:1px;}
+  .tx-amt{font-size:11.5px; font-weight:700; color:var(--forest-deep);}
+
+  .dash-bottombar{
+    display:flex;
+    justify-content:space-around;
+    padding:12px 10px;
+    background:var(--white);
+    border-top:1px solid var(--cream-deep);
+  }
+  .bottombar-item{
+    width:34px;height:34px;
+    border-radius:11px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .bottombar-item.active{background:var(--mint);}
+  .bottombar-item svg{width:17px;height:17px;stroke:var(--ink-soft);}
+  .bottombar-item.active svg{stroke:var(--forest-deep);}
+
+  /* ===== Section: stats strip ===== */
+  .stats-strip{
+    padding:50px 0;
+    border-top:1px solid rgba(30,91,62,0.1);
+    border-bottom:1px solid rgba(30,91,62,0.1);
+    background:var(--cream-deep);
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+    text-align:center;
+  }
+  .stat-num{
+    font-family:'Fraunces', serif;
+    font-size:clamp(28px, 4vw, 38px);
+    font-weight:600;
+    color:var(--forest-deep);
+  }
+  .stat-label{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:4px;
+    font-weight:500;
+  }
+
+  /* ===== Reveal animation ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1080px){
+    .hero-layout{
+      grid-template-columns:1fr;
+      max-width:420px;
+    }
+    .feature-col{
+      flex-direction:row;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+    .feature-card{flex:1 1 240px;}
+    .phone-stage{order:-1; margin-bottom:8px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (max-width: 720px){
+    .wrap{padding:0 20px;}
+    .nav{padding:14px 20px;}
+    .nav-links{
+      position:fixed;
+      top:73px;
+      left:0;right:0;
+      background:var(--cream);
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      padding:8px 24px 16px;
+      border-bottom:1px solid rgba(30,91,62,0.12);
+      transform:translateY(-130%);
+      opacity:0;
+      transition:transform 0.35s ease, opacity 0.3s ease;
+      pointer-events:none;
+    }
+    .nav-links.open{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid var(--cream-deep);}
+    .nav-actions .btn-outline{display:none;}
+    .menu-toggle{display:flex;}
+    .hero{padding:50px 0 40px;}
+    .hero-ctas .btn{flex:1; text-align:center;}
+    .feature-col{flex-direction:column;}
+    .phone{width:248px; height:508px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr); gap:30px 16px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand" aria-label="Arka Bari Community home">
+      <span class="brand-icon">AB</span>
+      <span class="brand-name">Arka Bari Community</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#perks">Community Perks</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#login" class="btn btn-outline">Member Login</a>
+      <a href="#join" class="btn btn-filled">Join Family</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <svg id="menuIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
+    <div class="wrap">
+
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span> Trusted by 12,000+ member families</span>
+        <h1>Together We Are <em>Family</em></h1>
+        <p class="subtitle">Secure Savings, Community Support &amp; Family Benefits in One Platform. Empowering families with transparent financial growth.</p>
+        <div class="hero-ctas">
+          <a href="#join" class="btn btn-filled">Join Family</a>
+          <a href="#about" class="btn btn-outline">Learn How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-layout">
+
+        <div class="feature-col">
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V9l7-5 7 5v12"></path><path d="M9 21v-6h6v6"></path></svg>
+            </div>
+            <h3>Community Savings</h3>
+            <p>Secure monthly savings plans with collective power.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            </div>
+            <h3>Safe &amp; Verified</h3>
+            <p>Multi-layer verification for every transaction.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            </div>
+            <h3>24/7 Support</h3>
+            <p>Direct access to community moderators anytime.</p>
+          </div>
+        </div>
+
+        <div class="phone-stage">
+          <div class="phone-glow" aria-hidden="true"></div>
+          <div class="phone" role="img" aria-label="Member dashboard preview showing savings, progress and recent deposits">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+
+              <div class="dash-header">
+                <div class="dash-avatar">RN</div>
+                <div class="dash-greeting">Welcome back</div>
+                <div class="dash-name">Rahima Nasrin</div>
+                <div class="dash-id">Member ID — AB-204871</div>
+              </div>
+
+              <div class="dash-body">
+                <div class="dash-card">
+                  <div class="savings-label">Total Savings</div>
+                  <div class="savings-amount">৳ 84,250</div>
+                  <div class="savings-sub">+ ৳3,200 this month</div>
+
+                  <div class="progress-row">
+                    <span>Savings Goal</span>
+                    <b>৳ 84,250 / ৳ 1,25,000</b>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill"></div>
+                  </div>
+                </div>
+
+                <div class="dash-grid2">
+                  <div class="mini-card">
+                    <div class="mini-label">Wallet Balance</div>
+                    <div class="mini-value">৳ 6,480</div>
+                  </div>
+                  <div class="mini-card">
+                    <div class="mini-label">Family Benefits</div>
+                    <div class="mini-value">3 Active</div>
+                  </div>
+                </div>
+
+                <div class="dash-card">
+                  <div class="dash-section-title">Recent Deposits <span>See all</span></div>
+
+                  <div class="tx-row">
+                    <div class="tx-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                    </div>
+                    <div class="tx-info">
+                      <div class="tx-title">Monthly Deposit</div>
+                      <div class="tx-date">Jun 28 · bKash</div>
+                    </div>
+                    <div class="tx-amt">+৳1,500</div>
+                  </div>
+
+                  <div class="tx-row">
+                    <div class="tx-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                    </div>
+                    <div class="tx-info">
+                      <div class="tx-title">Bonus Contribution</div>
+                      <div class="tx-date">Jun 14 · Bank Transfer</div>
+                    </div>
+                    <div class="tx-amt">+৳1,700</div>
+                  </div>
+
+                  <div class="tx-row">
+                    <div class="tx-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                    </div>
+                    <div class="tx-info">
+                      <div class="tx-title">Monthly Deposit</div>
+                      <div class="tx-date">May 28 · Nagad</div>
+                    </div>
+                    <div class="tx-amt">+৳1,500</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dash-bottombar">
+                <div class="bottombar-item active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 3l9 9"></path><path d="M5 10v10h14V10"></path></svg>
+                </div>
+                <div class="bottombar-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
+                </div>
+                <div class="bottombar-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"></rect><path d="M2 10h20"></path></svg>
+                </div>
+                <div class="bottombar-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a8 8 0 0 1 16 0v1"></path></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-col">
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3.5 20c.6-3.2 3-5.2 5.5-5.2s4.9 2 5.5 5.2"></path><path d="M14.5 14.9c2.1.2 4 2.1 4.5 5.1"></path></svg>
+            </div>
+            <h3>Family Network</h3>
+            <p>Connect with verified community members.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"></rect><path d="M2 10h20"></path><path d="M6 15h4"></path></svg>
+            </div>
+            <h3>Easy Deposits</h3>
+            <p>Support for bKash, Nagad, Visa, MasterCard and Bank Transfer.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 15l3.5-4.5 3 3L19 8"></path></svg>
+            </div>
+            <h3>Track Progress</h3>
+            <p>Real-time savings charts and financial reports.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-strip" id="perks">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="reveal">
+          <div class="stat-num">12,400+</div>
+          <div class="stat-label">Member Families</div>
+        </div>
+        <div class="reveal">
+          <div class="stat-num">৳18.6Cr</div>
+          <div class="stat-label">Total Community Savings</div>
+        </div>
+        <div class="reveal">
+          <div class="stat-num">99.8%</div>
+          <div class="stat-label">Verified Transactions</div>
+        </div>
+        <div class="reveal">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Moderator Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const menuIcon = document.getElementById('menuIcon');
+
+  const closeIconPath = '<line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line>';
+  const openIconPath = '<line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    menuIcon.innerHTML = isOpen ? closeIconPath : openIconPath;
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuIcon.innerHTML = openIconPath;
+    });
+  });
+
+  // Scroll reveal animation
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in-view'), i * 70);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
